@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  app:
+    image: myapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/take_note_dbb
+      SPRING_DATASOURCE_USERNAME: yugesh12
+      SPRING_DATASOURCE_PASSWORD: mypass12
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - my_network
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: take_note_dbb
+      MYSQL_USER: yugesh12
+      MYSQL_PASSWORD: mypass12
+    ports:
+      - "3306:3306"
+    networks:
+      - my_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+networks:
+  my_network:
+
