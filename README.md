@@ -28,7 +28,8 @@ Take Note is a Mini Spring Boot MVC Web Application.
 
 
 <hr>
-
+<h3>Blog link for setup the proejct locally and dockerized the application as well</h3>
+https://medium.com/@yugeshkumar6202/dockerizing-and-setting-up-a-spring-boot-mvc-web-application-with-3-layer-architecture-locally-on-873c3b37ae7d
 <h1>How to Run this Project:</h1>
 
 - First <b>Clone</b> Take-Note Repo. Link: https://github.com/mdtalalwasim/Take-Note.git
